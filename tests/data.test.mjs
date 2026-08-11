@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { FICTIONAL_PLAYERS, FICTIONAL_TEAMS, generateFictionalTeams } from "../.test-dist/src/data/fictionalTeams.js";
-import { PROFESSIONAL_PLAYERS, PROFESSIONAL_TEAMS } from "../.test-dist/src/data/proTeams.js";
+import { PROFESSIONAL_PLAYERS, PROFESSIONAL_SNAPSHOT_INFO, PROFESSIONAL_TEAMS } from "../.test-dist/src/data/proTeams.js";
 import { BUILT_IN_TEMPLATES } from "../.test-dist/src/data/templates.js";
 import { detectNameLanguage, validateRoster, validateTemplate } from "../.test-dist/src/domain/validation.js";
 
@@ -27,10 +27,28 @@ test("fictional rosters are internally single-language and playable", () => {
   }
 });
 
-test("professional snapshot uses unique ids and playable rosters", () => {
-  assert.ok(PROFESSIONAL_TEAMS.length >= 16);
+test("professional snapshot contains the complete ranked library and only complete rosters are playable", () => {
+  assert.equal(PROFESSIONAL_TEAMS.length, 215);
+  assert.equal(PROFESSIONAL_PLAYERS.length, 1032);
+  assert.equal(new Set(PROFESSIONAL_TEAMS.map((team) => team.id)).size, PROFESSIONAL_TEAMS.length);
   assert.equal(new Set(PROFESSIONAL_PLAYERS.map((player) => player.id)).size, PROFESSIONAL_PLAYERS.length);
-  for (const team of PROFESSIONAL_TEAMS) assert.deepEqual(validateRoster(team, PROFESSIONAL_PLAYERS), []);
+
+  const complete = PROFESSIONAL_TEAMS.filter((team) => team.roster.starters.length === 5);
+  const incomplete = PROFESSIONAL_TEAMS.filter((team) => team.roster.starters.length < 5);
+  assert.equal(complete.length, 180);
+  assert.equal(incomplete.length, 35);
+  assert.equal(PROFESSIONAL_TEAMS.reduce((sum, team) => sum + 5 - team.roster.starters.length, 0), 43);
+  assert.ok(complete.every((team) => validateRoster(team, PROFESSIONAL_PLAYERS).length === 0));
+  assert.ok(incomplete.every((team) => validateRoster(team, PROFESSIONAL_PLAYERS).length > 0));
+
+  const rosterPlayerIds = PROFESSIONAL_TEAMS.flatMap((team) => team.roster.starters);
+  assert.equal(new Set(rosterPlayerIds).size, rosterPlayerIds.length);
+  assert.ok(rosterPlayerIds.every((id) => PROFESSIONAL_PLAYERS.some((player) => player.id === id)));
+  assert.equal(PROFESSIONAL_SNAPSHOT_INFO.sourceDate, "2026-08-10");
+  assert.match(PROFESSIONAL_SNAPSHOT_INFO.rankingUrl, /hltv\.org\/ranking\/teams\/2026\/august\/10/);
+  assert.match(PROFESSIONAL_SNAPSHOT_INFO.statsUrl, /hltv\.org\/stats\/players/);
+  assert.deepEqual(PROFESSIONAL_SNAPSHOT_INFO.ranks, Array.from({ length: 215 }, (_, index) => index + 1));
+  assert.equal(PROFESSIONAL_SNAPSHOT_INFO.unmatchedStatsPlayerCount, 37);
 });
 
 test("all built-in templates validate", () => {

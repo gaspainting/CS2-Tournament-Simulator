@@ -147,6 +147,18 @@ function validateTeamRoster(team: Team, players: Player[], path: string): void {
   if (errors.length) invalid(path, errors.join("；"));
 }
 
+function validateStoredTeamRoster(team: Team, players: Player[], path: string): void {
+  if (team.source !== "professional") {
+    validateTeamRoster(team, players, path);
+    return;
+  }
+  if (team.roster.starters.length < 1 || team.roster.starters.length > 5) {
+    invalid(path, "职业队首发阵容必须包含 1 到 5 名选手");
+  }
+  const errors = validateRoster(team, players).filter((error) => error !== "首发阵容必须恰好包含 5 名选手");
+  if (errors.length) invalid(path, errors.join("；"));
+}
+
 function parseTemplate(value: unknown, path: string): TournamentTemplate {
   const candidate = record(value, path);
   text(candidate.id, `${path}.id`);
@@ -409,7 +421,7 @@ export function parseAppDatabaseV3(value: unknown): AppDatabase {
   assertUnique(teams.map((team) => team.id), "数据库.teams");
   assertUnique(templates.map((template) => template.id), "数据库.templates");
   assertUnique(saves.map((save) => save.id), "数据库.saves");
-  for (const [index, team] of teams.entries()) validateTeamRoster(team, players, `数据库.teams[${index}]`);
+  for (const [index, team] of teams.entries()) validateStoredTeamRoster(team, players, `数据库.teams[${index}]`);
   const database: AppDatabase = {
     version: 3,
     players,

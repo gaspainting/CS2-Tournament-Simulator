@@ -7,7 +7,8 @@ import {
   parseTemplatePackage,
 } from "../.test-dist/src/domain/importValidation.js";
 import { TEMPLATE_BY_ID } from "../.test-dist/src/data/templates.js";
-import { createDefaultDatabase, createTournamentSave } from "../.test-dist/src/state/operations.js";
+import { validateRoster } from "../.test-dist/src/domain/validation.js";
+import { copyTeamToCustom, createDefaultDatabase, createTournamentSave } from "../.test-dist/src/state/operations.js";
 
 function validDatabaseWithSave() {
   const database = createDefaultDatabase();
@@ -30,6 +31,27 @@ test("full database import rejects roster references to missing players", () => 
   const database = validDatabaseWithSave();
   database.teams[0].roster.starters[0] = "missing-player";
   assert.throws(() => parseAppDatabaseV3(database), /missing-player|阵容|引用/i);
+});
+
+test("full database import preserves incomplete professional rosters but they remain unplayable", () => {
+  const database = createDefaultDatabase();
+  const incomplete = database.teams.find((team) => team.source === "professional" && team.roster.starters.length < 5);
+  assert.ok(incomplete);
+  assert.match(validateRoster(incomplete, database.players).join(" "), /5|首发/);
+  assert.deepEqual(parseAppDatabaseV3(JSON.parse(JSON.stringify(database))), JSON.parse(JSON.stringify(database)));
+});
+
+test("full database import still rejects incomplete fictional and custom rosters", () => {
+  for (const source of ["fictional", "custom"]) {
+    const base = createDefaultDatabase();
+    const database = source === "custom"
+      ? copyTeamToCustom(base, base.teams.find((team) => team.roster.starters.length === 5).id, "Incomplete Custom")
+      : base;
+    const team = database.teams.find((candidate) => candidate.source === source);
+    assert.ok(team);
+    team.roster.starters = team.roster.starters.slice(0, 4);
+    assert.throws(() => parseAppDatabaseV3(database), /5|首发|阵容/i);
+  }
 });
 
 test("full database import rejects duplicate ids and malformed template options", () => {

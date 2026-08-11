@@ -225,7 +225,10 @@ test("generated data remaps duplicate game IDs against the existing library", ()
   generated.players[0].nickname = database.players[0].nickname;
 
   const merged = mergeGeneratedData(database, generated.teams, generated.players);
-  const nicknames = merged.players.map((player) => player.nickname.trim().toLocaleLowerCase());
+  const existingNicknames = new Set(database.players.map((player) => player.nickname.trim().toLocaleLowerCase()));
+  const importedPlayers = merged.players.slice(database.players.length);
+  const importedNicknames = importedPlayers.map((player) => player.nickname.trim().toLocaleLowerCase());
 
-  assert.equal(new Set(nicknames).size, nicknames.length);
+  assert.equal(new Set(importedNicknames).size, importedNicknames.length);
+  assert.ok(importedNicknames.every((nickname) => !existingNicknames.has(nickname)));
 });
