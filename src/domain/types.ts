@@ -158,7 +158,12 @@ export type AppDatabase = {
   saves: SaveGame[];
   settings: AppSettings;
   professionalSnapshot: DataSnapshotInfo;
-  migration?: { legacyV2ImportedAt?: number; legacyBackup?: string; fictionalNicknameVersion?: number };
+  migration?: {
+    legacyV2ImportedAt?: number;
+    legacyBackup?: string;
+    fictionalNicknameVersion?: number;
+    professionalSnapshotVersion?: number;
+  };
 };
 
 export type HltvUpdateStatus = {

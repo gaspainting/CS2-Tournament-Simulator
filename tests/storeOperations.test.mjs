@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { FICTIONAL_NICKNAME_MIGRATIONS, generateFictionalTeams } from "../.test-dist/src/data/fictionalTeams.js";
+import { PROFESSIONAL_SNAPSHOT_DATE } from "../.test-dist/src/data/proTeams.js";
 import { TEMPLATE_BY_ID } from "../.test-dist/src/data/templates.js";
+import { validateRoster } from "../.test-dist/src/domain/validation.js";
 import {
   autoFillParticipants,
   copyTeamToCustom,
@@ -21,9 +23,58 @@ import {
 
 test("default database contains bundled professional and fictional libraries", () => {
   const database = createDefaultDatabase();
-  assert.ok(database.teams.filter((team) => team.source === "professional").length >= 16);
+  assert.equal(database.teams.filter((team) => team.source === "professional").length, 215);
+  assert.equal(database.players.filter((player) => player.source === "professional").length, 1032);
+  assert.equal(database.migration?.professionalSnapshotVersion, 2);
   assert.equal(database.teams.filter((team) => team.source === "fictional").length, 50);
   assert.ok(database.templates.length >= 10);
+});
+
+function legacyProfessionalBaseline() {
+  const database = createDefaultDatabase();
+  const professionalTeams = database.teams.filter((team) => team.source === "professional").slice(0, 16);
+  const memberIds = new Set(professionalTeams.flatMap((team) => team.roster.starters));
+  const professionalPlayers = database.players.filter((player) => player.source === "professional" && memberIds.has(player.id));
+  assert.equal(professionalPlayers.length, 80);
+  return {
+    ...database,
+    players: [...professionalPlayers, ...database.players.filter((player) => player.source !== "professional")],
+    teams: [...professionalTeams, ...database.teams.filter((team) => team.source !== "professional")],
+    professionalSnapshot: {
+      source: "HLTV Players / Stats",
+      sourceDate: PROFESSIONAL_SNAPSHOT_DATE,
+      updatedAt: PROFESSIONAL_SNAPSHOT_DATE,
+      teamCount: 16,
+      playerCount: 80,
+    },
+    migration: { fictionalNicknameVersion: 1 },
+  };
+}
+
+test("professional snapshot migration replaces the untouched 16-team baseline once and preserves saves", () => {
+  let legacy = legacyProfessionalBaseline();
+  const teamIds = legacy.teams.filter((team) => team.source === "professional").slice(0, 8).map((team) => team.id);
+  legacy = createTournamentSave(legacy, "Professional Migration", TEMPLATE_BY_ID["single-8"], teamIds, teamIds[0], 81);
+  const savesBefore = JSON.stringify(legacy.saves);
+
+  const migrated = mergeMissingBuiltIns(legacy);
+  assert.equal(migrated.teams.filter((team) => team.source === "professional").length, 215);
+  assert.equal(migrated.players.filter((player) => player.source === "professional").length, 1032);
+  assert.equal(migrated.migration?.professionalSnapshotVersion, 2);
+  assert.equal(JSON.stringify(migrated.saves), savesBefore);
+  assert.deepEqual(mergeMissingBuiltIns(migrated), migrated);
+});
+
+test("professional snapshot migration does not overwrite a user-maintained professional library", () => {
+  const customLibrary = legacyProfessionalBaseline();
+  customLibrary.professionalSnapshot.sourceDate = "2026-08-09";
+  const professionalTeamsBefore = structuredClone(customLibrary.teams.filter((team) => team.source === "professional"));
+  const professionalPlayersBefore = structuredClone(customLibrary.players.filter((player) => player.source === "professional"));
+
+  const migrated = mergeMissingBuiltIns(customLibrary);
+  assert.deepEqual(migrated.teams.filter((team) => team.source === "professional"), professionalTeamsBefore);
+  assert.deepEqual(migrated.players.filter((player) => player.source === "professional"), professionalPlayersBefore);
+  assert.equal(migrated.migration?.professionalSnapshotVersion, 2);
 });
 
 test("built-in nickname migration updates only untouched library players once", () => {
@@ -77,6 +128,22 @@ test("auto fill honors professional percentage and excludes duplicates", () => {
   assert.ok(professionalCount >= 8 && professionalCount <= 11);
 });
 
+test("tournament selection exposes 180 playable professional teams and excludes all 35 incomplete teams", () => {
+  const database = createDefaultDatabase();
+  const professionalTeams = database.teams.filter((team) => team.source === "professional");
+  const playableIds = new Set(professionalTeams.filter((team) => validateRoster(team, database.players).length === 0).map((team) => team.id));
+  const blockedIds = new Set(professionalTeams.filter((team) => validateRoster(team, database.players).length > 0).map((team) => team.id));
+  assert.equal(playableIds.size, 180);
+  assert.equal(blockedIds.size, 35);
+
+  const template = TEMPLATE_BY_ID["single-16"];
+  for (const seed of [1, 17, 81, 2026]) {
+    const selected = autoFillParticipants(database, template, [...playableIds][0], 100, seed);
+    assert.equal(selected.length, 16);
+    assert.ok(selected.every((teamId) => !blockedIds.has(teamId)));
+  }
+});
+
 test("empty professional updates are rejected without clearing the existing library", () => {
   const database = createDefaultDatabase();
   const customTeam = { ...database.teams[0], id: "custom-kept", name: "自建队", source: "custom" };
@@ -87,6 +154,15 @@ test("empty professional updates are rejected without clearing the existing libr
   );
   assert.ok(withCustom.teams.some((team) => team.id === "custom-kept"));
   assert.ok(withCustom.teams.some((team) => team.source === "professional"));
+});
+
+test("professional updates accept incomplete ranked rosters without making them playable", () => {
+  const database = createDefaultDatabase();
+  const players = structuredClone(database.players.filter((player) => player.source === "professional"));
+  const teams = structuredClone(database.teams.filter((team) => team.source === "professional"));
+  const updated = mergeProfessionalUpdate(database, { players, teams, sourceDate: PROFESSIONAL_SNAPSHOT_DATE });
+  assert.equal(updated.teams.filter((team) => team.source === "professional").length, 215);
+  assert.equal(updated.teams.filter((team) => team.source === "professional" && team.roster.starters.length < 5).length, 35);
 });
 
 test("professional updates validate ids, source, roster references, and fields", () => {

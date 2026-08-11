@@ -437,6 +437,7 @@ export function parseAppDatabaseV3(value: unknown): AppDatabase {
     if (migration.legacyV2ImportedAt !== undefined) database.migration.legacyV2ImportedAt = finiteNumber(migration.legacyV2ImportedAt, "数据库.migration.legacyV2ImportedAt", 0);
     if (migration.legacyBackup !== undefined) database.migration.legacyBackup = text(migration.legacyBackup, "数据库.migration.legacyBackup");
     if (migration.fictionalNicknameVersion !== undefined) database.migration.fictionalNicknameVersion = integer(migration.fictionalNicknameVersion, "数据库.migration.fictionalNicknameVersion", 0);
+    if (migration.professionalSnapshotVersion !== undefined) database.migration.professionalSnapshotVersion = integer(migration.professionalSnapshotVersion, "数据库.migration.professionalSnapshotVersion", 0);
   }
   return database;
 }

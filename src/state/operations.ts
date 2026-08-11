@@ -11,6 +11,9 @@ export type ProfessionalUpdatePayload = { teams: Team[]; players: Player[]; sour
 
 const PROFESSIONAL_SHRINK_RATIO = 0.5;
 const FICTIONAL_NICKNAME_VERSION = 1;
+const PROFESSIONAL_SNAPSHOT_VERSION = 2;
+const LEGACY_PROFESSIONAL_TEAM_COUNT = 16;
+const LEGACY_PROFESSIONAL_PLAYER_COUNT = 80;
 const PLAYER_ROLES = new Set(["IGL", "AWPer", "Rifler", "Entry", "Support", "Coach", "Unset"]);
 
 function hasText(value: unknown): value is string {
@@ -49,7 +52,8 @@ function validateProfessionalTeam(team: Team, players: Player[], index: number):
   if (!Number.isFinite(team.stability) || team.stability < 0 || team.stability > 1) throw new Error(`${label} stability 无效`);
   if (team.hltvId !== undefined && (!Number.isInteger(team.hltvId) || team.hltvId <= 0)) throw new Error(`${label} hltvId 无效`);
   if (!team.roster || !Array.isArray(team.roster.starters) || !Array.isArray(team.roster.substitutes)) throw new Error(`${label} 阵容格式无效`);
-  const errors = validateRoster(team, players);
+  if (team.roster.starters.length < 1 || team.roster.starters.length > 5) throw new Error(`${label} 首发阵容必须包含 1 到 5 名选手`);
+  const errors = validateRoster(team, players).filter((error) => error !== "首发阵容必须恰好包含 5 名选手");
   if (errors.length) throw new Error(`${team.name}：${errors.join("；")}`);
 }
 
@@ -97,13 +101,25 @@ export function createDefaultDatabase(): AppDatabase {
       teamCount: PROFESSIONAL_TEAMS.length,
       playerCount: PROFESSIONAL_PLAYERS.length,
     },
-    migration: { fictionalNicknameVersion: FICTIONAL_NICKNAME_VERSION },
+    migration: {
+      fictionalNicknameVersion: FICTIONAL_NICKNAME_VERSION,
+      professionalSnapshotVersion: PROFESSIONAL_SNAPSHOT_VERSION,
+    },
   };
 }
 
 export function mergeMissingBuiltIns(database: AppDatabase): AppDatabase {
   const base = createDefaultDatabase();
   const currentNicknameVersion = database.migration?.fictionalNicknameVersion ?? 0;
+  const currentProfessionalSnapshotVersion = database.migration?.professionalSnapshotVersion ?? 0;
+  const professionalTeamCount = database.teams.filter((team) => team.source === "professional").length;
+  const professionalPlayerCount = database.players.filter((player) => player.source === "professional").length;
+  const shouldMigrateProfessionalSnapshot = currentProfessionalSnapshotVersion < PROFESSIONAL_SNAPSHOT_VERSION
+    && database.professionalSnapshot.sourceDate === PROFESSIONAL_SNAPSHOT_DATE
+    && database.professionalSnapshot.teamCount === LEGACY_PROFESSIONAL_TEAM_COUNT
+    && database.professionalSnapshot.playerCount === LEGACY_PROFESSIONAL_PLAYER_COUNT
+    && professionalTeamCount === LEGACY_PROFESSIONAL_TEAM_COUNT
+    && professionalPlayerCount === LEGACY_PROFESSIONAL_PLAYER_COUNT;
   const migrationsById = new Map(FICTIONAL_NICKNAME_MIGRATIONS.map((migration) => [migration.id, migration]));
   const migratedPlayers = currentNicknameVersion < FICTIONAL_NICKNAME_VERSION
     ? database.players.map((player) => {
@@ -111,17 +127,27 @@ export function mergeMissingBuiltIns(database: AppDatabase): AppDatabase {
       return migration && player.nickname === migration.from ? { ...player, nickname: migration.to } : player;
     })
     : database.players;
-  const playerIds = new Set(migratedPlayers.map((player) => player.id));
-  const teamIds = new Set(database.teams.map((team) => team.id));
+  const professionalPlayers = base.players.filter((player) => player.source === "professional");
+  const professionalTeams = base.teams.filter((team) => team.source === "professional");
+  const nextPlayers = shouldMigrateProfessionalSnapshot
+    ? [...professionalPlayers, ...migratedPlayers.filter((player) => player.source !== "professional")]
+    : migratedPlayers;
+  const nextTeams = shouldMigrateProfessionalSnapshot
+    ? [...professionalTeams, ...database.teams.filter((team) => team.source !== "professional")]
+    : database.teams;
+  const playerIds = new Set(nextPlayers.map((player) => player.id));
+  const teamIds = new Set(nextTeams.map((team) => team.id));
   const templateIds = new Set(database.templates.map((template) => template.id));
   return {
     ...database,
-    players: [...migratedPlayers, ...base.players.filter((player) => player.source === "fictional" && !playerIds.has(player.id))],
-    teams: [...database.teams, ...base.teams.filter((team) => team.source === "fictional" && !teamIds.has(team.id))],
+    players: [...nextPlayers, ...base.players.filter((player) => player.source === "fictional" && !playerIds.has(player.id))],
+    teams: [...nextTeams, ...base.teams.filter((team) => team.source === "fictional" && !teamIds.has(team.id))],
     templates: [...database.templates, ...base.templates.filter((template) => !templateIds.has(template.id))],
+    professionalSnapshot: shouldMigrateProfessionalSnapshot ? base.professionalSnapshot : database.professionalSnapshot,
     migration: {
       ...database.migration,
       fictionalNicknameVersion: Math.max(currentNicknameVersion, FICTIONAL_NICKNAME_VERSION),
+      professionalSnapshotVersion: PROFESSIONAL_SNAPSHOT_VERSION,
     },
   };
 }
@@ -343,6 +369,10 @@ export function mergeProfessionalUpdate(database: AppDatabase, payload: Professi
       updatedAt: new Date().toISOString(),
       teamCount: payload.teams.length,
       playerCount: payload.players.length,
+    },
+    migration: {
+      ...database.migration,
+      professionalSnapshotVersion: PROFESSIONAL_SNAPSHOT_VERSION,
     },
   };
 }
