@@ -52,6 +52,15 @@ export function validateRoster(team: Team, players: Player[]): string[] {
   return errors;
 }
 
+export function validateStoredRoster(team: Team, players: Player[]): string[] {
+  const errors = validateRoster(team, players);
+  if (team.source !== "professional") return errors;
+  if (team.roster.starters.length < 1 || team.roster.starters.length > 5) {
+    return ["职业队首发阵容必须包含 1 到 5 名选手", ...errors.filter((error) => error !== "首发阵容必须恰好包含 5 名选手")];
+  }
+  return errors.filter((error) => error !== "首发阵容必须恰好包含 5 名选手");
+}
+
 export function validateSeriesScore(bestOf: BestOf, scoreA: number, scoreB: number): string | null {
   if (!Number.isInteger(scoreA) || !Number.isInteger(scoreB) || scoreA < 0 || scoreB < 0) return "比分必须是非负整数";
   if (scoreA === scoreB) return "比赛不能以平局结束";

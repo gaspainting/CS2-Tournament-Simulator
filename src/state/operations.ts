@@ -4,7 +4,7 @@ import { BUILT_IN_TEMPLATES } from "../data/templates.js";
 import { parseCustomTeamPackage, parseTemplatePackage } from "../domain/importValidation.js";
 import { seededShuffle, stableId } from "../domain/random.js";
 import type { AppDatabase, CustomTeamPackage, Player, SaveGame, Team, TeamSnapshot, TemplatePackage, TournamentState, TournamentTemplate } from "../domain/types.js";
-import { validatePlayer, validateRoster, validateTemplate } from "../domain/validation.js";
+import { validatePlayer, validateRoster, validateStoredRoster, validateTemplate } from "../domain/validation.js";
 import { createTournament } from "../engine/tournamentEngine.js";
 
 export type ProfessionalUpdatePayload = { teams: Team[]; players: Player[]; sourceDate: string };
@@ -52,8 +52,7 @@ function validateProfessionalTeam(team: Team, players: Player[], index: number):
   if (!Number.isFinite(team.stability) || team.stability < 0 || team.stability > 1) throw new Error(`${label} stability 无效`);
   if (team.hltvId !== undefined && (!Number.isInteger(team.hltvId) || team.hltvId <= 0)) throw new Error(`${label} hltvId 无效`);
   if (!team.roster || !Array.isArray(team.roster.starters) || !Array.isArray(team.roster.substitutes)) throw new Error(`${label} 阵容格式无效`);
-  if (team.roster.starters.length < 1 || team.roster.starters.length > 5) throw new Error(`${label} 首发阵容必须包含 1 到 5 名选手`);
-  const errors = validateRoster(team, players).filter((error) => error !== "首发阵容必须恰好包含 5 名选手");
+  const errors = validateStoredRoster(team, players);
   if (errors.length) throw new Error(`${team.name}：${errors.join("；")}`);
 }
 
@@ -162,7 +161,7 @@ export function upsertPlayer(database: AppDatabase, player: Player): AppDatabase
   for (const team of database.teams) {
     const memberIds = [...team.roster.starters, ...team.roster.substitutes, ...(team.roster.coachId ? [team.roster.coachId] : [])];
     if (!memberIds.includes(player.id)) continue;
-    const rosterErrors = validateRoster(team, players);
+    const rosterErrors = validateStoredRoster(team, players);
     if (rosterErrors.length) throw new Error(`${team.name}：${rosterErrors.join("；")}`);
   }
   return { ...database, players };
@@ -176,7 +175,7 @@ export function deletePlayer(database: AppDatabase, playerId: string): AppDataba
 }
 
 export function upsertTeam(database: AppDatabase, team: Team): AppDatabase {
-  const errors = validateRoster(team, database.players);
+  const errors = validateStoredRoster(team, database.players);
   if (errors.length) throw new Error(errors.join("\n"));
   const memberIds = new Set([...team.roster.starters, ...team.roster.substitutes, ...(team.roster.coachId ? [team.roster.coachId] : [])]);
   for (const player of database.players.filter((candidate) => memberIds.has(candidate.id))) {
@@ -215,6 +214,10 @@ export function copyTeamToCustom(database: AppDatabase, teamId: string, name?: s
     },
     updatedAt: new Date().toISOString().slice(0, 10),
   };
+  const copiedRosterErrors = validateRoster(copiedTeam, [...database.players, ...copiedPlayers]);
+  if (copiedRosterErrors.length) {
+    throw new Error(`自建队必须是完整五人阵容：${copiedRosterErrors.join("；")}`);
+  }
   return { ...database, players: [...database.players, ...copiedPlayers], teams: [...database.teams, copiedTeam] };
 }
 

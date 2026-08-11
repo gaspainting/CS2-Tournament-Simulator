@@ -221,6 +221,27 @@ test("editing a roster member cannot invalidate a referenced team", () => {
   assert.equal(database.players.find((player) => player.id === starter.id)?.role, starter.role);
 });
 
+test("incomplete professional teams and their players remain editable while unplayable", () => {
+  const database = createDefaultDatabase();
+  const team = database.teams.find((candidate) => candidate.source === "professional" && candidate.roster.starters.length < 5);
+  assert.ok(team);
+  const player = database.players.find((candidate) => candidate.id === team.roster.starters[0]);
+  assert.ok(player);
+
+  const withPlayerEdit = upsertPlayer(database, { ...player, realName: `${player.realName} Updated` });
+  const withTeamEdit = upsertTeam(withPlayerEdit, { ...team, name: `${team.name} Updated` });
+  const updatedTeam = withTeamEdit.teams.find((candidate) => candidate.id === team.id);
+  assert.equal(updatedTeam.name, `${team.name} Updated`);
+  assert.match(validateRoster(updatedTeam, withTeamEdit.players).join(" "), /5|首发/);
+});
+
+test("copying an incomplete professional team cannot create an invalid custom team", () => {
+  const database = createDefaultDatabase();
+  const team = database.teams.find((candidate) => candidate.source === "professional" && candidate.roster.starters.length < 5);
+  assert.ok(team);
+  assert.throws(() => copyTeamToCustom(database, team.id, "Incomplete Copy"), /5|首发|完整/i);
+});
+
 test("template import preserves existing templates and deterministically remaps collisions", () => {
   const database = createDefaultDatabase();
   const original = structuredClone(database.templates[0]);

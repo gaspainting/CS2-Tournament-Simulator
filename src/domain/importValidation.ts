@@ -14,7 +14,7 @@ import type {
   TournamentTemplate,
   TemplatePackage,
 } from "./types.js";
-import { validatePlayer, validateRoster, validateTemplate } from "./validation.js";
+import { validatePlayer, validateRoster, validateStoredRoster, validateTemplate } from "./validation.js";
 import { createTournament, SWISS_BYE_TEAM_ID } from "../engine/tournamentEngine.js";
 
 type UnknownRecord = Record<string, unknown>;
@@ -148,14 +148,7 @@ function validateTeamRoster(team: Team, players: Player[], path: string): void {
 }
 
 function validateStoredTeamRoster(team: Team, players: Player[], path: string): void {
-  if (team.source !== "professional") {
-    validateTeamRoster(team, players, path);
-    return;
-  }
-  if (team.roster.starters.length < 1 || team.roster.starters.length > 5) {
-    invalid(path, "职业队首发阵容必须包含 1 到 5 名选手");
-  }
-  const errors = validateRoster(team, players).filter((error) => error !== "首发阵容必须恰好包含 5 名选手");
+  const errors = validateStoredRoster(team, players);
   if (errors.length) invalid(path, errors.join("；"));
 }
 
