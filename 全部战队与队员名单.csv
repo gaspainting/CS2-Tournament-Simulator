@@ -1,0 +1,336 @@
+﻿来源,战队,简称,地区,队伍评分,稳定度,阵容位置,游戏 ID,真实姓名,国籍,年龄,位置,Rating,Team HLTV ID,Player HLTV ID
+职业,Team Vitality,VIT,Europe,1919,0.66,首发,apEX,Dan Madesclaire,France,24,IGL,1.01,9565,7322
+职业,Team Vitality,VIT,Europe,1919,0.66,首发,ZywOo,Mathieu Herbaut,France,24,AWPer,1.32,9565,11893
+职业,Team Vitality,VIT,Europe,1919,0.66,首发,flameZ,Shahar Shushan,Israel,24,Entry,1.12,9565,16693
+职业,Team Vitality,VIT,Europe,1919,0.66,首发,ropz,Robin Kool,Estonia,24,Rifler,1.18,9565,11816
+职业,Team Vitality,VIT,Europe,1919,0.66,首发,mezii,William Merriman,United Kingdom,24,Support,1.08,9565,18462
+职业,Team Spirit,TS,Europe,1901,0.71,首发,chopper,Leonid Vishnyakov,Russia,24,IGL,0.98,7020,7716
+职业,Team Spirit,TS,Europe,1901,0.71,首发,sh1ro,Dmitry Sokolov,Russia,24,AWPer,1.22,7020,16920
+职业,Team Spirit,TS,Europe,1901,0.71,首发,donk,Danil Kryshkovets,Russia,24,Entry,1.25,7020,21167
+职业,Team Spirit,TS,Europe,1901,0.71,首发,zont1x,Miroslav Plakhotia,Ukraine,24,Rifler,1.08,7020,20423
+职业,Team Spirit,TS,Europe,1901,0.71,首发,magixx,Boris Vorobiev,Russia,24,Support,1.05,7020,18317
+职业,Team Falcons,FLC,Europe,1905,0.75,首发,kyxsan,Damjan Stoilkovski,North Macedonia,24,IGL,1.02,11283,19600
+职业,Team Falcons,FLC,Europe,1905,0.75,首发,m0NESY,Ilya Osipov,Russia,24,AWPer,1.20,11283,19230
+职业,Team Falcons,FLC,Europe,1905,0.75,首发,NiKo,Nikola Kovac,Bosnia and Herzegovina,24,Entry,1.14,11283,3741
+职业,Team Falcons,FLC,Europe,1905,0.75,首发,kyousuke,Maksim Lukin,Russia,24,Rifler,1.17,11283,24177
+职业,Team Falcons,FLC,Europe,1905,0.75,首发,TeSeS,Rene Madsen,Denmark,24,Support,1.08,11283,12018
+职业,Natus Vincere,NAVI,Europe,1894,0.8,首发,Aleksib,Aleksi Virolainen,Finland,24,IGL,1.02,4608,9816
+职业,Natus Vincere,NAVI,Europe,1894,0.8,首发,w0nderful,Ihor Zhdanov,Ukraine,24,AWPer,1.15,4608,20127
+职业,Natus Vincere,NAVI,Europe,1894,0.8,首发,jL,Justinas Lekavicius,Lithuania,24,Entry,1.13,4608,19206
+职业,Natus Vincere,NAVI,Europe,1894,0.8,首发,b1t,Valeriy Vakhovskiy,Ukraine,24,Rifler,1.14,4608,18987
+职业,Natus Vincere,NAVI,Europe,1894,0.8,首发,iM,Mihai Ivan,Romania,24,Support,1.09,4608,14759
+职业,MOUZ,MOUZ,Europe,1904,0.84,首发,Brollan,Ludvig Brolin,Sweden,24,IGL,1.10,4494,13666
+职业,MOUZ,MOUZ,Europe,1904,0.84,首发,torzsi,Adam Torzsas,Hungary,24,AWPer,1.13,4494,18072
+职业,MOUZ,MOUZ,Europe,1904,0.84,首发,Spinx,Lotan Giladi,Israel,24,Entry,1.14,4494,
+职业,MOUZ,MOUZ,Europe,1904,0.84,首发,Jimpphat,Jimi Salo,Finland,24,Rifler,1.12,4494,18850
+职业,MOUZ,MOUZ,Europe,1904,0.84,首发,xertioN,Dorian Berman,Israel,24,Support,1.11,4494,20312
+职业,FURIA,FUR,Americas,1904,0.66,首发,FalleN,Gabriel Toledo,Brazil,24,IGL,1.05,8297,2023
+职业,FURIA,FUR,Americas,1904,0.66,首发,molodoy,Danil Golubenko,Kazakhstan,24,AWPer,1.18,8297,24144
+职业,FURIA,FUR,Americas,1904,0.66,首发,YEKINDAR,Mareks Galinskis,Latvia,24,Entry,1.10,8297,13915
+职业,FURIA,FUR,Americas,1904,0.66,首发,KSCERATO,Kaike Cerato,Brazil,24,Rifler,1.17,8297,15631
+职业,FURIA,FUR,Americas,1904,0.66,首发,yuurih,Yuri Santos,Brazil,24,Support,1.10,8297,12553
+职业,The MongolZ,MGLZ,Asia,1896,0.71,首发,bLitz,Garidmagnai Byambasuren,Mongolia,24,IGL,1.10,6248,17372
+职业,The MongolZ,MGLZ,Asia,1896,0.71,首发,910,Usukhbayar Banzragch,Mongolia,24,AWPer,1.13,6248,21809
+职业,The MongolZ,MGLZ,Asia,1896,0.71,首发,Senzu,Azbayar Munkhbold,Mongolia,24,Entry,1.15,6248,21118
+职业,The MongolZ,MGLZ,Asia,1896,0.71,首发,Techno,Sodbayar Munkhbold,Mongolia,24,Rifler,1.09,6248,20990
+职业,The MongolZ,MGLZ,Asia,1896,0.71,首发,mzinho,Ayush Batbold,Mongolia,24,Support,1.07,6248,20989
+职业,Aurora Gaming,AUR,Europe,1886,0.75,首发,MAJ3R,Engin Kupeli,Türkiye,24,IGL,1.01,11861,692
+职业,Aurora Gaming,AUR,Europe,1886,0.75,首发,woxic,Ozgur Eker,Türkiye,24,AWPer,1.12,11861,8574
+职业,Aurora Gaming,AUR,Europe,1886,0.75,首发,XANTARES,Ismailcan Dortkardes,Türkiye,24,Entry,1.16,11861,7938
+职业,Aurora Gaming,AUR,Europe,1886,0.75,首发,Wicadia,Ali Haydar Yalcin,Türkiye,24,Rifler,1.10,11861,19422
+职业,Aurora Gaming,AUR,Europe,1886,0.75,首发,jottAAA,Samet Koklu,Türkiye,24,Support,1.08,11861,22294
+职业,G2 Esports,G2,Europe,1897,0.8,首发,huNter-,Nemanja Kovac,Bosnia and Herzegovina,24,IGL,1.07,5995,3972
+职业,G2 Esports,G2,Europe,1897,0.8,首发,SunPayus,Alvaro Garcia,Spain,24,AWPer,1.13,5995,19164
+职业,G2 Esports,G2,Europe,1897,0.8,首发,malbsMd,Mario Samayoa,Guatemala,24,Entry,1.12,5995,21445
+职业,G2 Esports,G2,Europe,1897,0.8,首发,MATYS,Matyas Oravec,Slovakia,24,Rifler,1.12,5995,19610
+职业,G2 Esports,G2,Europe,1897,0.8,首发,HeavyGod,Nikita Martynenko,Israel,24,Support,1.11,5995,20447
+职业,Astralis,AST,Europe,1879,0.84,首发,HooXi,Rasmus Nielsen,Denmark,24,IGL,0.97,6665,10096
+职业,Astralis,AST,Europe,1879,0.84,首发,device,Nicolai Reedtz,Denmark,24,AWPer,1.15,6665,7592
+职业,Astralis,AST,Europe,1879,0.84,首发,stavn,Martin Lund,Denmark,24,Entry,1.11,6665,10994
+职业,Astralis,AST,Europe,1879,0.84,首发,jabbi,Jakob Nygaard,Denmark,24,Rifler,1.11,6665,17956
+职业,Astralis,AST,Europe,1879,0.84,首发,Staehr,Victor Staehr,Denmark,24,Support,1.08,6665,20304
+职业,Team Liquid,TL,Americas,1890,0.66,首发,Twistzz,Russel Van Dulken,Canada,24,IGL,1.11,5973,10394
+职业,Team Liquid,TL,Americas,1890,0.66,首发,ultimate,Roland Tomkowiak,Poland,24,AWPer,1.09,5973,19258
+职业,Team Liquid,TL,Americas,1890,0.66,首发,NertZ,Guy Iluz,Israel,24,Entry,1.13,5973,15739
+职业,Team Liquid,TL,Americas,1890,0.66,首发,NAF,Keith Markovic,Canada,24,Rifler,1.14,5973,8520
+职业,Team Liquid,TL,Americas,1890,0.66,首发,siuhy,Kamil Szkaradek,Poland,24,Support,1.03,5973,16820
+职业,FaZe Clan,FAZE,Europe,1868,0.71,首发,karrigan,Finn Andersen,Denmark,24,IGL,0.94,6667,429
+职业,FaZe Clan,FAZE,Europe,1868,0.71,首发,broky,Helvijs Saukants,Latvia,24,AWPer,1.11,6667,18053
+职业,FaZe Clan,FAZE,Europe,1868,0.71,首发,rain,Havard Nygaard,Norway,24,Entry,1.06,6667,8183
+职业,FaZe Clan,FAZE,Europe,1868,0.71,首发,frozen,David Cernansky,Slovakia,24,Rifler,1.17,6667,9960
+职业,FaZe Clan,FAZE,Europe,1868,0.71,首发,jcobbb,Jakub Pietruszewski,Poland,24,Support,1.06,6667,21938
+职业,TYLOO,TYL,Asia,1880,0.75,首发,Attacker,YuanZhang Sheng,China,24,IGL,1.04,4863,8552
+职业,TYLOO,TYL,Asia,1880,0.75,首发,Jee,Yi Yang,China,24,AWPer,1.08,4863,18221
+职业,TYLOO,TYL,Asia,1880,0.75,首发,Mercury,BingYuan Wang,China,24,Entry,1.09,4863,18145
+职业,TYLOO,TYL,Asia,1880,0.75,首发,JamYoung,Yi Yang,China,24,Rifler,1.12,4863,19692
+职业,TYLOO,TYL,Asia,1880,0.75,首发,Moseyuh,Chen Qianhao,China,24,Support,1.10,4863,20090
+职业,Lynn Vision Gaming,LVG,Asia,1875,0.8,首发,westmelon,Zhe Niu,China,24,IGL,1.06,8840,17427
+职业,Lynn Vision Gaming,LVG,Asia,1875,0.8,首发,z4kr,Dehao Mao,China,24,AWPer,1.09,8840,17932
+职业,Lynn Vision Gaming,LVG,Asia,1875,0.8,首发,EmiliaQAQ,Wenyu Tang,China,24,Entry,1.07,8840,21692
+职业,Lynn Vision Gaming,LVG,Asia,1875,0.8,首发,Starry,Lizhi Ye,China,24,Rifler,1.12,8840,17645
+职业,Lynn Vision Gaming,LVG,Asia,1875,0.8,首发,flying,Peiqi Song,China,24,Support,1.05,8840,20580
+职业,BIG,BIG,Europe,1873,0.84,首发,tabseN,Johannes Wodarz,Germany,24,IGL,1.04,7532,5794
+职业,BIG,BIG,Europe,1873,0.84,首发,syrsoN,Florian Rische,Germany,24,AWPer,1.11,7532,7266
+职业,BIG,BIG,Europe,1873,0.84,首发,prosus,David Hesse,Germany,24,Entry,1.04,7532,19148
+职业,BIG,BIG,Europe,1873,0.84,首发,Krimbo,Karim Moussa,Germany,24,Rifler,1.12,7532,19899
+职业,BIG,BIG,Europe,1873,0.84,首发,JDC,Jon de Castro,Germany,24,Support,1.07,7532,19198
+职业,paiN Gaming,PNG,Americas,1883,0.66,首发,biguzera,Rodrigo Bittencourt,Brazil,24,IGL,1.12,4773,18141
+职业,paiN Gaming,PNG,Americas,1883,0.66,首发,nqz,Lucas Soares,Brazil,24,AWPer,1.10,4773,19630
+职业,paiN Gaming,PNG,Americas,1883,0.66,首发,snow,Joao Vinicius,Brazil,24,Entry,1.09,4773,22047
+职业,paiN Gaming,PNG,Americas,1883,0.66,首发,dav1deuS,David Tapia,Chile,24,Rifler,1.08,4773,17798
+职业,paiN Gaming,PNG,Americas,1883,0.66,首发,kauez,Kaue Kaschuk,Brazil,24,Support,1.06,4773,20698
+虚构,霜火竞技,霜火,Asia,1610,0.48,首发,林寒,林寒澈,中国,25,IGL,1.20,,
+虚构,霜火竞技,霜火,Asia,1610,0.48,首发,周辰,唐曜烬,中国,24,AWPer,0.98,,
+虚构,霜火竞技,霜火,Asia,1610,0.48,首发,沈野,魏鸣远,中国,27,Entry,1.04,,
+虚构,霜火竞技,霜火,Asia,1610,0.48,首发,陆烬,周墨岳,中国,19,Rifler,1.04,,
+虚构,霜火竞技,霜火,Asia,1610,0.48,首发,顾星,苏寒澈,中国,24,Support,1.20,,
+虚构,玄甲战队,玄甲,Asia,1627,0.54,首发,叶墨,陶曜烬,中国,25,IGL,1.17,,
+虚构,玄甲战队,玄甲,Asia,1627,0.54,首发,唐衡,沈鸣远,中国,24,AWPer,1.13,,
+虚构,玄甲战队,玄甲,Asia,1627,0.54,首发,苏舟,秦墨岳,中国,24,Entry,1.17,,
+虚构,玄甲战队,玄甲,Asia,1627,0.54,首发,秦澈,白寒澈,中国,25,Rifler,1.04,,
+虚构,玄甲战队,玄甲,Asia,1627,0.54,首发,韩锋,陆曜烬,中国,29,Support,1.08,,
+虚构,长风电子竞技,长风,Asia,1619,0.59,首发,程鸣,韩鸣远,中国,17,IGL,1.01,,
+虚构,长风电子竞技,长风,Asia,1619,0.59,首发,宋凛,夏墨岳,中国,18,AWPer,1.06,,
+虚构,长风电子竞技,长风,Asia,1619,0.59,首发,魏霄,顾寒澈,中国,20,Entry,1.16,,
+虚构,长风电子竞技,长风,Asia,1619,0.59,首发,陶岳,许曜烬,中国,27,Rifler,1.10,,
+虚构,长风电子竞技,长风,Asia,1619,0.59,首发,白岚,邵鸣远,中国,26,Support,1.20,,
+虚构,赤霄俱乐部,赤霄,Asia,1586,0.65,首发,邵曜,江墨岳,中国,17,IGL,1.19,,
+虚构,赤霄俱乐部,赤霄,Asia,1586,0.65,首发,罗策,程寒澈,中国,19,AWPer,1.17,,
+虚构,赤霄俱乐部,赤霄,Asia,1586,0.65,首发,林尘,罗曜烬,中国,20,Entry,0.88,,
+虚构,赤霄俱乐部,赤霄,Asia,1586,0.65,首发,周远,叶鸣远,中国,21,Rifler,1.14,,
+虚构,赤霄俱乐部,赤霄,Asia,1586,0.65,首发,沈川,宋墨岳,中国,24,Support,0.90,,
+虚构,星河竞技,星河,Asia,1588,0.7,首发,顾寒,林寒澈,中国,27,IGL,0.88,,
+虚构,星河竞技,星河,Asia,1588,0.7,首发,江辰,唐曜烬,中国,21,AWPer,1.14,,
+虚构,星河竞技,星河,Asia,1588,0.7,首发,叶野,魏鸣远,中国,28,Entry,1.05,,
+虚构,星河竞技,星河,Asia,1588,0.7,首发,唐烬,周墨岳,中国,18,Rifler,1.10,,
+虚构,星河竞技,星河,Asia,1588,0.7,首发,苏星,苏寒澈,中国,17,Support,1.12,,
+虚构,破晓战队,破晓,Asia,1624,0.76,首发,韩墨,陶曜烬,中国,26,IGL,1.20,,
+虚构,破晓战队,破晓,Asia,1624,0.76,首发,许衡,沈鸣远,中国,17,AWPer,1.14,,
+虚构,破晓战队,破晓,Asia,1624,0.76,首发,程舟,秦墨岳,中国,19,Entry,1.13,,
+虚构,破晓战队,破晓,Asia,1624,0.76,首发,宋澈,白寒澈,中国,28,Rifler,0.97,,
+虚构,破晓战队,破晓,Asia,1624,0.76,首发,魏锋,陆曜烬,中国,26,Support,1.13,,
+虚构,天穹电子竞技,天穹,Asia,1635,0.81,首发,白鸣,韩鸣远,中国,31,IGL,1.23,,
+虚构,天穹电子竞技,天穹,Asia,1635,0.81,首发,夏凛,夏墨岳,中国,17,AWPer,1.09,,
+虚构,天穹电子竞技,天穹,Asia,1635,0.81,首发,邵霄,顾寒澈,中国,17,Entry,1.05,,
+虚构,天穹电子竞技,天穹,Asia,1635,0.81,首发,罗岳,许曜烬,中国,28,Rifler,1.16,,
+虚构,天穹电子竞技,天穹,Asia,1635,0.81,首发,林岚,邵鸣远,中国,23,Support,1.12,,
+虚构,墨影俱乐部,墨影,Asia,1584,0.86,首发,沈曜,江墨岳,中国,28,IGL,0.93,,
+虚构,墨影俱乐部,墨影,Asia,1584,0.86,首发,陆策,程寒澈,中国,27,AWPer,0.91,,
+虚构,墨影俱乐部,墨影,Asia,1584,0.86,首发,顾尘,罗曜烬,中国,27,Entry,1.22,,
+虚构,墨影俱乐部,墨影,Asia,1584,0.86,首发,江远,叶鸣远,中国,26,Rifler,1.01,,
+虚构,墨影俱乐部,墨影,Asia,1584,0.86,首发,叶川,宋墨岳,中国,28,Support,1.19,,
+虚构,昆仑竞技,昆仑,Asia,1531,0.48,首发,苏寒,林寒澈,中国,31,IGL,1.01,,
+虚构,昆仑竞技,昆仑,Asia,1531,0.48,首发,秦辰,唐曜烬,中国,23,AWPer,0.96,,
+虚构,昆仑竞技,昆仑,Asia,1531,0.48,首发,韩野,魏鸣远,中国,26,Entry,0.95,,
+虚构,昆仑竞技,昆仑,Asia,1531,0.48,首发,许烬,周墨岳,中国,17,Rifler,1.01,,
+虚构,昆仑竞技,昆仑,Asia,1531,0.48,首发,程星,苏寒澈,中国,20,Support,0.92,,
+虚构,凌云战队,凌云,Asia,1560,0.54,首发,魏墨,陶曜烬,中国,19,IGL,1.14,,
+虚构,凌云战队,凌云,Asia,1560,0.54,首发,陶衡,沈鸣远,中国,23,AWPer,0.95,,
+虚构,凌云战队,凌云,Asia,1560,0.54,首发,白舟,秦墨岳,中国,22,Entry,1.04,,
+虚构,凌云战队,凌云,Asia,1560,0.54,首发,夏澈,白寒澈,中国,27,Rifler,0.98,,
+虚构,凌云战队,凌云,Asia,1560,0.54,首发,邵锋,陆曜烬,中国,25,Support,0.97,,
+虚构,苍狼电子竞技,苍狼,Asia,1627,0.59,首发,林鸣,韩鸣远,中国,20,IGL,1.17,,
+虚构,苍狼电子竞技,苍狼,Asia,1627,0.59,首发,周凛,夏墨岳,中国,30,AWPer,1.20,,
+虚构,苍狼电子竞技,苍狼,Asia,1627,0.59,首发,沈霄,顾寒澈,中国,23,Entry,1.20,,
+虚构,苍狼电子竞技,苍狼,Asia,1627,0.59,首发,陆岳,许曜烬,中国,28,Rifler,0.89,,
+虚构,苍狼电子竞技,苍狼,Asia,1627,0.59,首发,顾岚,邵鸣远,中国,20,Support,1.13,,
+虚构,逐日俱乐部,逐日,Asia,1586,0.65,首发,叶曜,江墨岳,中国,17,IGL,1.03,,
+虚构,逐日俱乐部,逐日,Asia,1586,0.65,首发,唐策,程寒澈,中国,19,AWPer,0.93,,
+虚构,逐日俱乐部,逐日,Asia,1586,0.65,首发,苏尘,罗曜烬,中国,22,Entry,1.15,,
+虚构,逐日俱乐部,逐日,Asia,1586,0.65,首发,秦远,叶鸣远,中国,23,Rifler,1.24,,
+虚构,逐日俱乐部,逐日,Asia,1586,0.65,首发,韩川,宋墨岳,中国,23,Support,0.93,,
+虚构,青锋竞技,青锋,Asia,1632,0.7,首发,程寒,林寒澈,中国,30,IGL,1.13,,
+虚构,青锋竞技,青锋,Asia,1632,0.7,首发,宋辰,唐曜烬,中国,30,AWPer,1.21,,
+虚构,青锋竞技,青锋,Asia,1632,0.7,首发,魏野,魏鸣远,中国,26,Entry,1.14,,
+虚构,青锋竞技,青锋,Asia,1632,0.7,首发,陶烬,周墨岳,中国,21,Rifler,0.97,,
+虚构,青锋竞技,青锋,Asia,1632,0.7,首发,白星,苏寒澈,中国,17,Support,1.18,,
+虚构,磐石战队,磐石,Asia,1612,0.76,首发,邵墨,陶曜烬,中国,28,IGL,1.17,,
+虚构,磐石战队,磐石,Asia,1612,0.76,首发,罗衡,沈鸣远,中国,23,AWPer,0.89,,
+虚构,磐石战队,磐石,Asia,1612,0.76,首发,林舟,秦墨岳,中国,21,Entry,1.04,,
+虚构,磐石战队,磐石,Asia,1612,0.76,首发,周澈,白寒澈,中国,17,Rifler,1.20,,
+虚构,磐石战队,磐石,Asia,1612,0.76,首发,沈锋,陆曜烬,中国,18,Support,1.18,,
+虚构,龙渊电子竞技,龙渊,Asia,1593,0.81,首发,顾鸣,韩鸣远,中国,30,IGL,1.23,,
+虚构,龙渊电子竞技,龙渊,Asia,1593,0.81,首发,江凛,夏墨岳,中国,25,AWPer,0.95,,
+虚构,龙渊电子竞技,龙渊,Asia,1593,0.81,首发,叶霄,顾寒澈,中国,20,Entry,1.23,,
+虚构,龙渊电子竞技,龙渊,Asia,1593,0.81,首发,唐岳,许曜烬,中国,17,Rifler,0.96,,
+虚构,龙渊电子竞技,龙渊,Asia,1593,0.81,首发,苏岚,邵鸣远,中国,19,Support,0.96,,
+虚构,北斗俱乐部,北斗,Asia,1544,0.86,首发,韩曜,江墨岳,中国,23,IGL,0.93,,
+虚构,北斗俱乐部,北斗,Asia,1544,0.86,首发,许策,程寒澈,中国,23,AWPer,0.91,,
+虚构,北斗俱乐部,北斗,Asia,1544,0.86,首发,程尘,罗曜烬,中国,21,Entry,1.02,,
+虚构,北斗俱乐部,北斗,Asia,1544,0.86,首发,宋远,叶鸣远,中国,21,Rifler,1.18,,
+虚构,北斗俱乐部,北斗,Asia,1544,0.86,首发,魏川,宋墨岳,中国,19,Support,0.91,,
+虚构,烽火竞技,烽火,Asia,1605,0.48,首发,白寒,林寒澈,中国,27,IGL,1.20,,
+虚构,烽火竞技,烽火,Asia,1605,0.48,首发,夏辰,唐曜烬,中国,21,AWPer,1.02,,
+虚构,烽火竞技,烽火,Asia,1605,0.48,首发,邵野,魏鸣远,中国,17,Entry,0.91,,
+虚构,烽火竞技,烽火,Asia,1605,0.48,首发,罗烬,周墨岳,中国,28,Rifler,1.17,,
+虚构,烽火竞技,烽火,Asia,1605,0.48,首发,林星,苏寒澈,中国,24,Support,1.12,,
+虚构,云海战队,云海,Asia,1598,0.54,首发,沈墨,陶曜烬,中国,30,IGL,1.22,,
+虚构,云海战队,云海,Asia,1598,0.54,首发,陆衡,沈鸣远,中国,24,AWPer,0.98,,
+虚构,云海战队,云海,Asia,1598,0.54,首发,顾舟,秦墨岳,中国,19,Entry,1.22,,
+虚构,云海战队,云海,Asia,1598,0.54,首发,江澈,白寒澈,中国,25,Rifler,1.01,,
+虚构,云海战队,云海,Asia,1598,0.54,首发,叶锋,陆曜烬,中国,19,Support,0.94,,
+虚构,金乌电子竞技,金乌,Asia,1625,0.59,首发,苏鸣,韩鸣远,中国,20,IGL,1.20,,
+虚构,金乌电子竞技,金乌,Asia,1625,0.59,首发,秦凛,夏墨岳,中国,22,AWPer,1.12,,
+虚构,金乌电子竞技,金乌,Asia,1625,0.59,首发,韩霄,顾寒澈,中国,24,Entry,1.09,,
+虚构,金乌电子竞技,金乌,Asia,1625,0.59,首发,许岳,许曜烬,中国,30,Rifler,1.06,,
+虚构,金乌电子竞技,金乌,Asia,1625,0.59,首发,程岚,邵鸣远,中国,17,Support,1.11,,
+虚构,雷池俱乐部,雷池,Asia,1615,0.65,首发,魏曜,江墨岳,中国,20,IGL,0.95,,
+虚构,雷池俱乐部,雷池,Asia,1615,0.65,首发,陶策,程寒澈,中国,28,AWPer,1.17,,
+虚构,雷池俱乐部,雷池,Asia,1615,0.65,首发,白尘,罗曜烬,中国,22,Entry,1.14,,
+虚构,雷池俱乐部,雷池,Asia,1615,0.65,首发,夏远,叶鸣远,中国,23,Rifler,1.09,,
+虚构,雷池俱乐部,雷池,Asia,1615,0.65,首发,邵川,宋墨岳,中国,20,Support,1.15,,
+虚构,千帆竞技,千帆,Asia,1546,0.7,首发,林寒,林寒澈,中国,18,IGL,1.17,,
+虚构,千帆竞技,千帆,Asia,1546,0.7,首发,周辰,唐曜烬,中国,22,AWPer,1.06,,
+虚构,千帆竞技,千帆,Asia,1546,0.7,首发,沈野,魏鸣远,中国,30,Entry,0.89,,
+虚构,千帆竞技,千帆,Asia,1546,0.7,首发,陆烬,周墨岳,中国,21,Rifler,0.89,,
+虚构,千帆竞技,千帆,Asia,1546,0.7,首发,顾星,苏寒澈,中国,21,Support,0.96,,
+虚构,银翼战队,银翼,Asia,1645,0.76,首发,叶墨,陶曜烬,中国,29,IGL,1.18,,
+虚构,银翼战队,银翼,Asia,1645,0.76,首发,唐衡,沈鸣远,中国,19,AWPer,1.05,,
+虚构,银翼战队,银翼,Asia,1645,0.76,首发,苏舟,秦墨岳,中国,24,Entry,1.19,,
+虚构,银翼战队,银翼,Asia,1645,0.76,首发,秦澈,白寒澈,中国,18,Rifler,1.23,,
+虚构,银翼战队,银翼,Asia,1645,0.76,首发,韩锋,陆曜烬,中国,22,Support,1.08,,
+虚构,山海电子竞技,山海,Asia,1620,0.81,首发,程鸣,韩鸣远,中国,22,IGL,1.20,,
+虚构,山海电子竞技,山海,Asia,1620,0.81,首发,宋凛,夏墨岳,中国,28,AWPer,1.16,,
+虚构,山海电子竞技,山海,Asia,1620,0.81,首发,魏霄,顾寒澈,中国,23,Entry,1.15,,
+虚构,山海电子竞技,山海,Asia,1620,0.81,首发,陶岳,许曜烬,中国,25,Rifler,1.01,,
+虚构,山海电子竞技,山海,Asia,1620,0.81,首发,白岚,邵鸣远,中国,28,Support,1.02,,
+虚构,无界俱乐部,无界,Asia,1640,0.86,首发,邵曜,江墨岳,中国,24,IGL,1.15,,
+虚构,无界俱乐部,无界,Asia,1640,0.86,首发,罗策,程寒澈,中国,24,AWPer,1.14,,
+虚构,无界俱乐部,无界,Asia,1640,0.86,首发,林尘,罗曜烬,中国,28,Entry,1.13,,
+虚构,无界俱乐部,无界,Asia,1640,0.86,首发,周远,叶鸣远,中国,23,Rifler,1.20,,
+虚构,无界俱乐部,无界,Asia,1640,0.86,首发,沈川,宋墨岳,中国,24,Support,1.07,,
+虚构,曜石竞技,曜石,Asia,1625,0.48,首发,顾寒,林寒澈,中国,20,IGL,1.22,,
+虚构,曜石竞技,曜石,Asia,1625,0.48,首发,江辰,唐曜烬,中国,28,AWPer,1.07,,
+虚构,曜石竞技,曜石,Asia,1625,0.48,首发,叶野,魏鸣远,中国,20,Entry,1.24,,
+虚构,曜石竞技,曜石,Asia,1625,0.48,首发,唐烬,周墨岳,中国,19,Rifler,0.99,,
+虚构,曜石竞技,曜石,Asia,1625,0.48,首发,苏星,苏寒澈,中国,22,Support,1.06,,
+虚构,Northwind,N,Americas,1593,0.54,首发,Apex6,Felix Pierce,United States,24,IGL,1.04,,
+虚构,Northwind,N,Americas,1593,0.54,首发,Bolt6,Gavin Turner,Canada,29,AWPer,1.19,,
+虚构,Northwind,N,Americas,1593,0.54,首发,Cipher6,Hayden Bennett,United Kingdom,30,Entry,1.00,,
+虚构,Northwind,N,Americas,1593,0.54,首发,Drift6,Isaac Ellis,Australia,25,Rifler,1.20,,
+虚构,Northwind,N,Americas,1593,0.54,首发,Ember6,Jonah Hayes,Sweden,21,Support,0.90,,
+虚构,Iron Harbor,IH,Oceania,1550,0.59,首发,Flux6,Kai Keller,United States,23,IGL,0.95,,
+虚构,Iron Harbor,IH,Oceania,1550,0.59,首发,Ghost6,Liam Nash,Canada,22,AWPer,0.95,,
+虚构,Iron Harbor,IH,Oceania,1550,0.59,首发,Havoc6,Mason Reeves,United Kingdom,30,Entry,1.05,,
+虚构,Iron Harbor,IH,Oceania,1550,0.59,首发,Ion6,Nolan Walker,Australia,23,Rifler,0.93,,
+虚构,Iron Harbor,IH,Oceania,1550,0.59,首发,Jolt6,Owen Carter,Sweden,31,Support,1.12,,
+虚构,Crimson Vale,CV,Europe,1610,0.65,首发,Knox6,Parker Foster,United States,19,IGL,1.07,,
+虚构,Crimson Vale,CV,Europe,1610,0.65,首发,Lumen6,Quinn Irwin,Canada,18,AWPer,1.07,,
+虚构,Crimson Vale,CV,Europe,1610,0.65,首发,Mako6,Reid Lawson,United Kingdom,29,Entry,1.15,,
+虚构,Crimson Vale,CV,Europe,1610,0.65,首发,Nova6,Silas Ortega,Australia,27,Rifler,1.11,,
+虚构,Crimson Vale,CV,Europe,1610,0.65,首发,Onyx6,Theo Sawyer,Sweden,26,Support,1.06,,
+虚构,Silent Circuit,SC,Americas,1606,0.7,首发,Pulse6,Alden Archer,United States,24,IGL,1.19,,
+虚构,Silent Circuit,SC,Americas,1606,0.7,首发,Quest6,Blake Dalton,Canada,28,AWPer,0.90,,
+虚构,Silent Circuit,SC,Americas,1606,0.7,首发,Rift6,Caleb Griffin,United Kingdom,17,Entry,1.00,,
+虚构,Silent Circuit,SC,Americas,1606,0.7,首发,Shade6,Damon Jensen,Australia,25,Rifler,1.15,,
+虚构,Silent Circuit,SC,Americas,1606,0.7,首发,Trace6,Elias Mercer,Sweden,25,Support,1.19,,
+虚构,Solar Crown,SC,Oceania,1627,0.76,首发,Vex6,Felix Pierce,United States,23,IGL,1.23,,
+虚构,Solar Crown,SC,Oceania,1627,0.76,首发,Warden6,Gavin Turner,Canada,31,AWPer,1.17,,
+虚构,Solar Crown,SC,Oceania,1627,0.76,首发,Xeno6,Hayden Bennett,United Kingdom,30,Entry,1.12,,
+虚构,Solar Crown,SC,Oceania,1627,0.76,首发,Yield6,Isaac Ellis,Australia,20,Rifler,1.16,,
+虚构,Solar Crown,SC,Oceania,1627,0.76,首发,Zenith6,Jonah Hayes,Sweden,25,Support,0.91,,
+虚构,Glass Horizon,GH,Europe,1606,0.81,首发,Apex7,Kai Keller,United States,25,IGL,1.19,,
+虚构,Glass Horizon,GH,Europe,1606,0.81,首发,Bolt7,Liam Nash,Canada,29,AWPer,1.12,,
+虚构,Glass Horizon,GH,Europe,1606,0.81,首发,Cipher7,Mason Reeves,United Kingdom,31,Entry,1.01,,
+虚构,Glass Horizon,GH,Europe,1606,0.81,首发,Drift7,Nolan Walker,Australia,31,Rifler,1.00,,
+虚构,Glass Horizon,GH,Europe,1606,0.81,首发,Ember7,Owen Carter,Sweden,26,Support,1.11,,
+虚构,Wild Meridian,WM,Americas,1560,0.86,首发,Flux7,Parker Foster,United States,25,IGL,1.09,,
+虚构,Wild Meridian,WM,Americas,1560,0.86,首发,Ghost7,Quinn Irwin,Canada,31,AWPer,0.89,,
+虚构,Wild Meridian,WM,Americas,1560,0.86,首发,Havoc7,Reid Lawson,United Kingdom,20,Entry,1.14,,
+虚构,Wild Meridian,WM,Americas,1560,0.86,首发,Ion7,Silas Ortega,Australia,19,Rifler,1.06,,
+虚构,Wild Meridian,WM,Americas,1560,0.86,首发,Jolt7,Theo Sawyer,Sweden,31,Support,0.90,,
+虚构,Black Summit,BS,Oceania,1571,0.48,首发,Knox7,Alden Archer,United States,24,IGL,1.09,,
+虚构,Black Summit,BS,Oceania,1571,0.48,首发,Lumen7,Blake Dalton,Canada,31,AWPer,0.92,,
+虚构,Black Summit,BS,Oceania,1571,0.48,首发,Mako7,Caleb Griffin,United Kingdom,17,Entry,1.23,,
+虚构,Black Summit,BS,Oceania,1571,0.48,首发,Nova7,Damon Jensen,Australia,29,Rifler,1.01,,
+虚构,Black Summit,BS,Oceania,1571,0.48,首发,Onyx7,Elias Mercer,Sweden,22,Support,0.91,,
+虚构,Neon Forge,NF,Europe,1581,0.54,首发,Pulse7,Felix Pierce,United States,18,IGL,1.24,,
+虚构,Neon Forge,NF,Europe,1581,0.54,首发,Quest7,Gavin Turner,Canada,19,AWPer,0.95,,
+虚构,Neon Forge,NF,Europe,1581,0.54,首发,Rift7,Hayden Bennett,United Kingdom,22,Entry,1.01,,
+虚构,Neon Forge,NF,Europe,1581,0.54,首发,Shade7,Isaac Ellis,Australia,25,Rifler,1.04,,
+虚构,Neon Forge,NF,Europe,1581,0.54,首发,Trace7,Jonah Hayes,Sweden,23,Support,1.00,,
+虚构,Cold Frontier,CF,Americas,1618,0.59,首发,Vex7,Kai Keller,United States,22,IGL,1.08,,
+虚构,Cold Frontier,CF,Americas,1618,0.59,首发,Warden7,Liam Nash,Canada,26,AWPer,1.21,,
+虚构,Cold Frontier,CF,Americas,1618,0.59,首发,Xeno7,Mason Reeves,United Kingdom,22,Entry,1.19,,
+虚构,Cold Frontier,CF,Americas,1618,0.59,首发,Yield7,Nolan Walker,Australia,30,Rifler,0.97,,
+虚构,Cold Frontier,CF,Americas,1618,0.59,首发,Zenith7,Owen Carter,Sweden,27,Support,1.07,,
+虚构,Rapid Echo,RE,Oceania,1572,0.65,首发,Apex8,Parker Foster,United States,18,IGL,1.10,,
+虚构,Rapid Echo,RE,Oceania,1572,0.65,首发,Bolt8,Quinn Irwin,Canada,28,AWPer,1.01,,
+虚构,Rapid Echo,RE,Oceania,1572,0.65,首发,Cipher8,Reid Lawson,United Kingdom,31,Entry,1.04,,
+虚构,Rapid Echo,RE,Oceania,1572,0.65,首发,Drift8,Silas Ortega,Australia,23,Rifler,1.05,,
+虚构,Rapid Echo,RE,Oceania,1572,0.65,首发,Ember8,Theo Sawyer,Sweden,20,Support,0.97,,
+虚构,Silver Current,SC,Europe,1585,0.7,首发,Flux8,Alden Archer,United States,17,IGL,0.95,,
+虚构,Silver Current,SC,Europe,1585,0.7,首发,Ghost8,Blake Dalton,Canada,28,AWPer,0.99,,
+虚构,Silver Current,SC,Europe,1585,0.7,首发,Havoc8,Caleb Griffin,United Kingdom,30,Entry,1.01,,
+虚构,Silver Current,SC,Europe,1585,0.7,首发,Ion8,Damon Jensen,Australia,28,Rifler,1.16,,
+虚构,Silver Current,SC,Europe,1585,0.7,首发,Jolt8,Elias Mercer,Sweden,28,Support,1.16,,
+虚构,Last Beacon,LB,Americas,1583,0.76,首发,Knox8,Felix Pierce,United States,18,IGL,1.20,,
+虚构,Last Beacon,LB,Americas,1583,0.76,首发,Lumen8,Gavin Turner,Canada,28,AWPer,1.01,,
+虚构,Last Beacon,LB,Americas,1583,0.76,首发,Mako8,Hayden Bennett,United Kingdom,19,Entry,1.00,,
+虚构,Last Beacon,LB,Americas,1583,0.76,首发,Nova8,Isaac Ellis,Australia,25,Rifler,0.99,,
+虚构,Last Beacon,LB,Americas,1583,0.76,首发,Onyx8,Jonah Hayes,Sweden,26,Support,1.05,,
+虚构,Zero Gravity,ZG,Oceania,1531,0.81,首发,Pulse8,Kai Keller,United States,18,IGL,0.92,,
+虚构,Zero Gravity,ZG,Oceania,1531,0.81,首发,Quest8,Liam Nash,Canada,20,AWPer,1.00,,
+虚构,Zero Gravity,ZG,Oceania,1531,0.81,首发,Rift8,Mason Reeves,United Kingdom,20,Entry,0.94,,
+虚构,Zero Gravity,ZG,Oceania,1531,0.81,首发,Shade8,Nolan Walker,Australia,28,Rifler,1.00,,
+虚构,Zero Gravity,ZG,Oceania,1531,0.81,首发,Trace8,Owen Carter,Sweden,30,Support,0.99,,
+虚构,Bright Ruin,BR,Europe,1580,0.86,首发,Vex8,Parker Foster,United States,20,IGL,1.12,,
+虚构,Bright Ruin,BR,Europe,1580,0.86,首发,Warden8,Quinn Irwin,Canada,19,AWPer,0.92,,
+虚构,Bright Ruin,BR,Europe,1580,0.86,首发,Xeno8,Reid Lawson,United Kingdom,31,Entry,1.02,,
+虚构,Bright Ruin,BR,Europe,1580,0.86,首发,Yield8,Silas Ortega,Australia,29,Rifler,1.18,,
+虚构,Bright Ruin,BR,Europe,1580,0.86,首发,Zenith8,Theo Sawyer,Sweden,31,Support,0.99,,
+虚构,Royal Static,RS,Americas,1553,0.48,首发,Apex9,Alden Archer,United States,21,IGL,0.91,,
+虚构,Royal Static,RS,Americas,1553,0.48,首发,Bolt9,Blake Dalton,Canada,27,AWPer,1.13,,
+虚构,Royal Static,RS,Americas,1553,0.48,首发,Cipher9,Caleb Griffin,United Kingdom,22,Entry,0.89,,
+虚构,Royal Static,RS,Americas,1553,0.48,首发,Drift9,Damon Jensen,Australia,21,Rifler,1.00,,
+虚构,Royal Static,RS,Americas,1553,0.48,首发,Ember9,Elias Mercer,Sweden,18,Support,1.09,,
+虚构,Hidden Vector,HV,Oceania,1622,0.54,首发,Flux9,Felix Pierce,United States,25,IGL,1.18,,
+虚构,Hidden Vector,HV,Oceania,1622,0.54,首发,Ghost9,Gavin Turner,Canada,31,AWPer,1.14,,
+虚构,Hidden Vector,HV,Oceania,1622,0.54,首发,Havoc9,Hayden Bennett,United Kingdom,26,Entry,1.11,,
+虚构,Hidden Vector,HV,Oceania,1622,0.54,首发,Ion9,Isaac Ellis,Australia,19,Rifler,1.18,,
+虚构,Hidden Vector,HV,Oceania,1622,0.54,首发,Jolt9,Jonah Hayes,Sweden,17,Support,0.94,,
+虚构,Prime Orbit,PO,Europe,1541,0.59,首发,Knox9,Kai Keller,United States,26,IGL,0.90,,
+虚构,Prime Orbit,PO,Europe,1541,0.59,首发,Lumen9,Liam Nash,Canada,19,AWPer,0.89,,
+虚构,Prime Orbit,PO,Europe,1541,0.59,首发,Mako9,Mason Reeves,United Kingdom,21,Entry,1.17,,
+虚构,Prime Orbit,PO,Europe,1541,0.59,首发,Nova9,Nolan Walker,Australia,23,Rifler,0.95,,
+虚构,Prime Orbit,PO,Europe,1541,0.59,首发,Onyx9,Owen Carter,Sweden,29,Support,1.02,,
+虚构,Ashen Tide,AT,Americas,1572,0.65,首发,Pulse9,Parker Foster,United States,27,IGL,1.06,,
+虚构,Ashen Tide,AT,Americas,1572,0.65,首发,Quest9,Quinn Irwin,Canada,17,AWPer,1.09,,
+虚构,Ashen Tide,AT,Americas,1572,0.65,首发,Rift9,Reid Lawson,United Kingdom,21,Entry,1.01,,
+虚构,Ashen Tide,AT,Americas,1572,0.65,首发,Shade9,Silas Ortega,Australia,24,Rifler,0.96,,
+虚构,Ashen Tide,AT,Americas,1572,0.65,首发,Trace9,Theo Sawyer,Sweden,26,Support,1.05,,
+虚构,Golden Relay,GR,Oceania,1592,0.7,首发,Vex9,Alden Archer,United States,22,IGL,1.18,,
+虚构,Golden Relay,GR,Oceania,1592,0.7,首发,Warden9,Blake Dalton,Canada,18,AWPer,1.16,,
+虚构,Golden Relay,GR,Oceania,1592,0.7,首发,Xeno9,Caleb Griffin,United Kingdom,18,Entry,0.97,,
+虚构,Golden Relay,GR,Oceania,1592,0.7,首发,Yield9,Damon Jensen,Australia,19,Rifler,1.02,,
+虚构,Golden Relay,GR,Oceania,1592,0.7,首发,Zenith9,Elias Mercer,Sweden,27,Support,0.99,,
+虚构,Night Signal,NS,Europe,1605,0.76,首发,Apex10,Felix Pierce,United States,17,IGL,0.95,,
+虚构,Night Signal,NS,Europe,1605,0.76,首发,Bolt10,Gavin Turner,Canada,21,AWPer,1.09,,
+虚构,Night Signal,NS,Europe,1605,0.76,首发,Cipher10,Hayden Bennett,United Kingdom,20,Entry,1.21,,
+虚构,Night Signal,NS,Europe,1605,0.76,首发,Drift10,Isaac Ellis,Australia,17,Rifler,1.04,,
+虚构,Night Signal,NS,Europe,1605,0.76,首发,Ember10,Jonah Hayes,Sweden,26,Support,1.13,,
+虚构,Open Season,OS,Americas,1609,0.81,首发,Flux10,Kai Keller,United States,20,IGL,1.22,,
+虚构,Open Season,OS,Americas,1609,0.81,首发,Ghost10,Liam Nash,Canada,21,AWPer,1.18,,
+虚构,Open Season,OS,Americas,1609,0.81,首发,Havoc10,Mason Reeves,United Kingdom,29,Entry,1.07,,
+虚构,Open Season,OS,Americas,1609,0.81,首发,Ion10,Nolan Walker,Australia,25,Rifler,0.98,,
+虚构,Open Season,OS,Americas,1609,0.81,首发,Jolt10,Owen Carter,Sweden,21,Support,1.00,,
+虚构,Steel Bloom,SB,Oceania,1547,0.86,首发,Knox10,Parker Foster,United States,28,IGL,1.12,,
+虚构,Steel Bloom,SB,Oceania,1547,0.86,首发,Lumen10,Quinn Irwin,Canada,20,AWPer,0.99,,
+虚构,Steel Bloom,SB,Oceania,1547,0.86,首发,Mako10,Reid Lawson,United Kingdom,23,Entry,0.92,,
+虚构,Steel Bloom,SB,Oceania,1547,0.86,首发,Nova10,Silas Ortega,Australia,22,Rifler,0.99,,
+虚构,Steel Bloom,SB,Oceania,1547,0.86,首发,Onyx10,Theo Sawyer,Sweden,23,Support,0.96,,
+虚构,Final Chapter,FC,Europe,1633,0.48,首发,Pulse10,Alden Archer,United States,29,IGL,1.10,,
+虚构,Final Chapter,FC,Europe,1633,0.48,首发,Quest10,Blake Dalton,Canada,23,AWPer,1.10,,
+虚构,Final Chapter,FC,Europe,1633,0.48,首发,Rift10,Caleb Griffin,United Kingdom,26,Entry,1.19,,
+虚构,Final Chapter,FC,Europe,1633,0.48,首发,Shade10,Damon Jensen,Australia,28,Rifler,1.18,,
+虚构,Final Chapter,FC,Europe,1633,0.48,首发,Trace10,Elias Mercer,Sweden,26,Support,1.07,,
+虚构,Clear Intent,CI,Americas,1576,0.54,首发,Vex10,Felix Pierce,United States,18,IGL,1.16,,
+虚构,Clear Intent,CI,Americas,1576,0.54,首发,Warden10,Gavin Turner,Canada,19,AWPer,0.93,,
+虚构,Clear Intent,CI,Americas,1576,0.54,首发,Xeno10,Hayden Bennett,United Kingdom,22,Entry,0.97,,
+虚构,Clear Intent,CI,Americas,1576,0.54,首发,Yield10,Isaac Ellis,Australia,22,Rifler,1.00,,
+虚构,Clear Intent,CI,Americas,1576,0.54,首发,Zenith10,Jonah Hayes,Sweden,18,Support,1.14,,
+自建,Revenge,RV,Asia,1776,0.65,首发,B1eSsing,z2b,中国,20,IGL,1.02,,
+自建,Revenge,RV,Asia,1776,0.65,首发,Len0,zly,中国,20,Support,1.30,,
+自建,Revenge,RV,Asia,1776,0.65,首发,Dragon,lwj,中国,20,Rifler,1.19,,
+自建,Revenge,RV,Asia,1776,0.65,首发,Zu0,hfzx,中国,20,Entry,1.60,,
+自建,Revenge,RV,Asia,1776,0.65,首发,S0nDer,zzb,中国,20,AWPer,1.63,,

@@ -1,0 +1,29 @@
+[package]
+name = "cs2-tournament-simulator"
+version = "1.0.0"
+description = "Standalone general-purpose CS2 tournament simulator"
+authors = ["Codex"]
+edition = "2021"
+
+[[bin]]
+name = "cs2-tournament-simulator"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "=2.6.3", features = [] }
+
+[dependencies]
+tauri = { version = "=2.11.5", features = ["custom-protocol"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+scraper = "0.22"
+regex = "1"
+keyring = { version = "4.1.6", default-features = false, features = ["v1", "windows-native-keyring-store"] }
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
