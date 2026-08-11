@@ -1,4 +1,4 @@
-import { FICTIONAL_PLAYERS, FICTIONAL_TEAMS } from "../data/fictionalTeams.js";
+import { deduplicateFictionalNicknames, FICTIONAL_NICKNAME_MIGRATIONS, FICTIONAL_PLAYERS, FICTIONAL_TEAMS } from "../data/fictionalTeams.js";
 import { PROFESSIONAL_PLAYERS, PROFESSIONAL_SNAPSHOT_DATE, PROFESSIONAL_TEAMS } from "../data/proTeams.js";
 import { BUILT_IN_TEMPLATES } from "../data/templates.js";
 import { parseCustomTeamPackage, parseTemplatePackage } from "../domain/importValidation.js";
@@ -10,6 +10,7 @@ import { createTournament } from "../engine/tournamentEngine.js";
 export type ProfessionalUpdatePayload = { teams: Team[]; players: Player[]; sourceDate: string };
 
 const PROFESSIONAL_SHRINK_RATIO = 0.5;
+const FICTIONAL_NICKNAME_VERSION = 1;
 const PLAYER_ROLES = new Set(["IGL", "AWPer", "Rifler", "Entry", "Support", "Coach", "Unset"]);
 
 function hasText(value: unknown): value is string {
@@ -96,19 +97,32 @@ export function createDefaultDatabase(): AppDatabase {
       teamCount: PROFESSIONAL_TEAMS.length,
       playerCount: PROFESSIONAL_PLAYERS.length,
     },
+    migration: { fictionalNicknameVersion: FICTIONAL_NICKNAME_VERSION },
   };
 }
 
 export function mergeMissingBuiltIns(database: AppDatabase): AppDatabase {
   const base = createDefaultDatabase();
-  const playerIds = new Set(database.players.map((player) => player.id));
+  const currentNicknameVersion = database.migration?.fictionalNicknameVersion ?? 0;
+  const migrationsById = new Map(FICTIONAL_NICKNAME_MIGRATIONS.map((migration) => [migration.id, migration]));
+  const migratedPlayers = currentNicknameVersion < FICTIONAL_NICKNAME_VERSION
+    ? database.players.map((player) => {
+      const migration = migrationsById.get(player.id);
+      return migration && player.nickname === migration.from ? { ...player, nickname: migration.to } : player;
+    })
+    : database.players;
+  const playerIds = new Set(migratedPlayers.map((player) => player.id));
   const teamIds = new Set(database.teams.map((team) => team.id));
   const templateIds = new Set(database.templates.map((template) => template.id));
   return {
     ...database,
-    players: [...database.players, ...base.players.filter((player) => player.source === "fictional" && !playerIds.has(player.id))],
+    players: [...migratedPlayers, ...base.players.filter((player) => player.source === "fictional" && !playerIds.has(player.id))],
     teams: [...database.teams, ...base.teams.filter((team) => team.source === "fictional" && !teamIds.has(team.id))],
     templates: [...database.templates, ...base.templates.filter((template) => !templateIds.has(template.id))],
+    migration: {
+      ...database.migration,
+      fictionalNicknameVersion: Math.max(currentNicknameVersion, FICTIONAL_NICKNAME_VERSION),
+    },
   };
 }
 
@@ -336,7 +350,10 @@ export function mergeProfessionalUpdate(database: AppDatabase, payload: Professi
 export function mergeGeneratedData(database: AppDatabase, teams: Team[], players: Player[]): AppDatabase {
   assertUniqueIds(players, "生成选手");
   assertUniqueIds(teams, "生成队伍");
-  const nextPlayers = structuredClone(players);
+  const nextPlayers = deduplicateFictionalNicknames(
+    structuredClone(players),
+    database.players.map((player) => player.nickname),
+  );
   const nextTeams = structuredClone(teams);
   const usedPlayerIds = new Set(database.players.map((player) => player.id));
   const reservedPlayerIds = new Set([...usedPlayerIds, ...nextPlayers.map((player) => player.id)]);

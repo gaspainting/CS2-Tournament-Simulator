@@ -21,7 +21,48 @@ const ENGLISH_FIRST = ["Alden", "Blake", "Caleb", "Damon", "Elias", "Felix", "Ga
 const ENGLISH_LAST = ["Archer", "Bennett", "Carter", "Dalton", "Ellis", "Foster", "Griffin", "Hayes", "Irwin", "Jensen", "Keller", "Lawson", "Mercer", "Nash", "Ortega", "Pierce", "Reeves", "Sawyer", "Turner", "Walker"];
 const ENGLISH_CALLSIGNS = ["Apex", "Bolt", "Cipher", "Drift", "Ember", "Flux", "Ghost", "Havoc", "Ion", "Jolt", "Knox", "Lumen", "Mako", "Nova", "Onyx", "Pulse", "Quest", "Rift", "Shade", "Trace", "Vex", "Warden", "Xeno", "Yield", "Zenith"];
 
-function buildFictionalData(): { players: Player[]; teams: Team[] } {
+export type FictionalNicknameMigration = { id: string; from: string; to: string };
+
+function nicknameKey(value: string): string {
+  return value.trim().toLocaleLowerCase();
+}
+
+function candidateNickname(language: "zh" | "en", index: number): string {
+  if (language === "en") {
+    return `${ENGLISH_CALLSIGNS[index % ENGLISH_CALLSIGNS.length]}${Math.floor(index / ENGLISH_CALLSIGNS.length) + 1}`;
+  }
+  const twoCharacterCount = CHINESE_SURNAMES.length * CHINESE_GIVEN.length;
+  if (index < twoCharacterCount) {
+    return `${CHINESE_SURNAMES[index % CHINESE_SURNAMES.length]}${CHINESE_GIVEN[Math.floor(index / CHINESE_SURNAMES.length)]}`;
+  }
+  const offset = index - twoCharacterCount;
+  return `${CHINESE_SURNAMES[offset % CHINESE_SURNAMES.length]}${CHINESE_GIVEN[Math.floor(offset / CHINESE_SURNAMES.length) % CHINESE_GIVEN.length]}${CHINESE_GIVEN[Math.floor(offset / twoCharacterCount) % CHINESE_GIVEN.length]}`;
+}
+
+export function deduplicateFictionalNicknames(players: Player[], reservedNicknames: Iterable<string> = []): Player[] {
+  const preferredKeys = new Set(players.map((player) => nicknameKey(player.nickname)));
+  const used = new Set<string>();
+  for (const nickname of reservedNicknames) used.add(nicknameKey(nickname));
+  return players.map((player) => {
+    const preferred = player.nickname.trim();
+    const preferredKey = nicknameKey(preferred);
+    if (!used.has(preferredKey)) {
+      used.add(preferredKey);
+      return { ...player, nickname: preferred };
+    }
+    const language = /[\u3400-\u9fff]/u.test(preferred) ? "zh" : "en";
+    for (let index = 0; index < 10000; index += 1) {
+      const candidate = candidateNickname(language, index);
+      const key = nicknameKey(candidate);
+      if (used.has(key) || preferredKeys.has(key)) continue;
+      used.add(key);
+      return { ...player, nickname: candidate };
+    }
+    throw new Error(`无法为 ${preferred} 生成唯一游戏 ID`);
+  });
+}
+
+function buildFictionalData(): { players: Player[]; teams: Team[]; migrations: FictionalNicknameMigration[] } {
   const players: Player[] = [];
   const teams: Team[] = [];
   let seed = 20260810;
@@ -71,12 +112,18 @@ function buildFictionalData(): { players: Player[]; teams: Team[] } {
       updatedAt: UPDATED_AT,
     });
   });
-  return { players, teams };
+  const resolvedPlayers = deduplicateFictionalNicknames(players);
+  const migrations = players.flatMap((player, index) => {
+    const resolved = resolvedPlayers[index];
+    return player.nickname === resolved.nickname ? [] : [{ id: player.id, from: player.nickname, to: resolved.nickname }];
+  });
+  return { players: resolvedPlayers, teams, migrations };
 }
 
 const fictionalData = buildFictionalData();
 export const FICTIONAL_PLAYERS = fictionalData.players;
 export const FICTIONAL_TEAMS = fictionalData.teams;
+export const FICTIONAL_NICKNAME_MIGRATIONS = fictionalData.migrations;
 
 export function generateFictionalTeams(seed: number, count: number, language: "zh" | "en"): { players: Player[]; teams: Team[] } {
   const players: Player[] = [];
@@ -127,5 +174,5 @@ export function generateFictionalTeams(seed: number, count: number, language: "z
       updatedAt: new Date().toISOString().slice(0, 10),
     });
   }
-  return { players, teams };
+  return { players: deduplicateFictionalNicknames(players), teams };
 }

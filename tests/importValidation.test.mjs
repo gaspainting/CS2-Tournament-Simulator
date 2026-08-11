@@ -59,6 +59,7 @@ test("save import rejects malformed tournament progress", () => {
 
 test("valid database and save roundtrip through runtime parsers", () => {
   const database = validDatabaseWithSave();
+  database.migration = { ...database.migration, fictionalNicknameVersion: 1 };
   const serializedDatabase = JSON.parse(JSON.stringify(database));
   const serializedSave = JSON.parse(JSON.stringify(database.saves[0]));
   assert.deepEqual(parseAppDatabaseV3(serializedDatabase), serializedDatabase);

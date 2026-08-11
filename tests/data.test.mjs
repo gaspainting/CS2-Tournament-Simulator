@@ -5,10 +5,16 @@ import { PROFESSIONAL_PLAYERS, PROFESSIONAL_TEAMS } from "../.test-dist/src/data
 import { BUILT_IN_TEMPLATES } from "../.test-dist/src/data/templates.js";
 import { detectNameLanguage, validateRoster, validateTemplate } from "../.test-dist/src/domain/validation.js";
 
+const normalizedNicknames = (players) => players.map((player) => player.nickname.trim().toLocaleLowerCase());
+
 test("bundles fifty fictional teams and 250 unique players", () => {
   assert.equal(FICTIONAL_TEAMS.length, 50);
   assert.equal(FICTIONAL_PLAYERS.length, 250);
   assert.equal(new Set(FICTIONAL_PLAYERS.map((player) => player.id)).size, 250);
+});
+
+test("bundled fictional player game IDs are globally unique", () => {
+  assert.equal(new Set(normalizedNicknames(FICTIONAL_PLAYERS)).size, FICTIONAL_PLAYERS.length);
 });
 
 test("fictional rosters are internally single-language and playable", () => {
@@ -42,5 +48,13 @@ test("offline generation creates additional single-language teams", () => {
       const player = generated.players.find((item) => item.id === playerId);
       assert.equal(detectNameLanguage(player.nickname), "zh");
     }
+  }
+});
+
+test("offline generation keeps Chinese and English game IDs unique", () => {
+  for (const language of ["zh", "en"]) {
+    const generated = generateFictionalTeams(991, 30, language);
+    assert.equal(new Set(normalizedNicknames(generated.players)).size, generated.players.length);
+    for (const player of generated.players) assert.equal(detectNameLanguage(player.nickname), language);
   }
 });

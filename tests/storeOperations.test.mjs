@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { FICTIONAL_NICKNAME_MIGRATIONS, generateFictionalTeams } from "../.test-dist/src/data/fictionalTeams.js";
 import { TEMPLATE_BY_ID } from "../.test-dist/src/data/templates.js";
 import {
   autoFillParticipants,
@@ -12,6 +13,7 @@ import {
   importCustomTeamPackage,
   importTemplatePackage,
   mergeGeneratedData,
+  mergeMissingBuiltIns,
   mergeProfessionalUpdate,
   upsertPlayer,
   upsertTeam,
@@ -22,6 +24,34 @@ test("default database contains bundled professional and fictional libraries", (
   assert.ok(database.teams.filter((team) => team.source === "professional").length >= 16);
   assert.equal(database.teams.filter((team) => team.source === "fictional").length, 50);
   assert.ok(database.templates.length >= 10);
+});
+
+test("built-in nickname migration updates only untouched library players once", () => {
+  const change = FICTIONAL_NICKNAME_MIGRATIONS[0];
+  assert.ok(change);
+  let legacy = createDefaultDatabase();
+  legacy = {
+    ...legacy,
+    migration: undefined,
+    players: legacy.players.map((player) => player.id === change.id ? { ...player, nickname: change.from } : player),
+  };
+  const affectedTeam = legacy.teams.find((team) => team.roster.starters.includes(change.id));
+  assert.ok(affectedTeam);
+  const teamIds = [affectedTeam.id, ...legacy.teams.filter((team) => team.id !== affectedTeam.id).slice(0, 7).map((team) => team.id)];
+  legacy = createTournamentSave(legacy, "Nickname Migration", TEMPLATE_BY_ID["single-8"], teamIds, affectedTeam.id, 33);
+  const originalSaves = structuredClone(legacy.saves);
+
+  const migrated = mergeMissingBuiltIns(legacy);
+  assert.equal(migrated.players.find((player) => player.id === change.id)?.nickname, change.to);
+  assert.equal(migrated.migration?.fictionalNicknameVersion, 1);
+  assert.deepEqual(migrated.saves, originalSaves);
+  assert.deepEqual(mergeMissingBuiltIns(migrated), migrated);
+
+  const manuallyEdited = {
+    ...legacy,
+    players: legacy.players.map((player) => player.id === change.id ? { ...player, nickname: "自定义ID" } : player),
+  };
+  assert.equal(mergeMissingBuiltIns(manuallyEdited).players.find((player) => player.id === change.id)?.nickname, "自定义ID");
 });
 
 test("deleting a library team does not change save snapshots", () => {
@@ -187,4 +217,15 @@ test("generated data deterministically remaps collisions instead of rejecting a 
   assert.ok(importedIds.every((id) => !memberIds.has(id)));
   assert.ok(importedIds.every((id) => first.players.some((player) => player.id === id)));
   assert.deepEqual(first.teams.find((candidate) => candidate.id === team.id), database.teams.find((candidate) => candidate.id === team.id));
+});
+
+test("generated data remaps duplicate game IDs against the existing library", () => {
+  const database = createDefaultDatabase();
+  const generated = generateFictionalTeams(991, 2, "zh");
+  generated.players[0].nickname = database.players[0].nickname;
+
+  const merged = mergeGeneratedData(database, generated.teams, generated.players);
+  const nicknames = merged.players.map((player) => player.nickname.trim().toLocaleLowerCase());
+
+  assert.equal(new Set(nicknames).size, nicknames.length);
 });
