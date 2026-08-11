@@ -151,6 +151,7 @@ function buildMarkdown(title, source) {
     }
     lines.push("");
   }
+  while (lines.at(-1) === "") lines.pop();
   return lines.join("\r\n") + "\r\n";
 }
 
